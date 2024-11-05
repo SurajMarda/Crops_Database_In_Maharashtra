@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crops In Maharashtra</title>
+    <script>
+        function fetchCropsData(district) {
+    fetch(`get_crops.php?district=${district}`)
+        .then(response => response.json())
+        .then(data => {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (data.length > 0) {
+                let cropsInfo = `<h2>Crops Data for ${district}</h2>`;
+                data.forEach(row => {
+                    cropsInfo += `<p><strong>District:</strong> ${row['District']}</p>`;
+                    cropsInfo += `<p><strong>Production:</strong> ${row['Production']}</p>`;
+                });
+                resultDiv.innerHTML = cropsInfo;
+            } else {
+                resultDiv.innerHTML = `<p>No crop data found for ${district}.</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            document.getElementById('result').innerHTML = '<p>Error fetching crop data.</p>';
+        });
+}
+
+    </script>
+</head>
+<body>
+    <div class="image-container" align="center" >
+        <img src="map_of_mh.jpg" alt="Map of Maharashtra" usemap="#crops">
+        <map name="crops">
+            <area shape="rect" coords="212,33,300,45" href="get_crops.php?district=Nandurabar" alt="Nandurabar">
+            <area shape="rect" coords="260,97,308,114" href="get_crops.php?district=Dhule" alt="Dhule">
+            <area shape="rect" coords="357,117,428,133" href="get_crops.php?district=Jalgaon" alt="Jalgaon">
+            <area shape="rect" coords="187,214,245,229" href="get_crops.php?district=Nashik" alt="Nashik">
+            <area shape="rect" coords="224,301,326,315" href="get_crops.php?district=Ahmednagar" alt="Ahmednagar">
+            <area shape="rect" coords="93,276,143,295" href="get_crops.php?district=Thane" alt="Thane">
+            <area shape="rect" coords="12,362,96,385" href="get_crops.php?district=Mumbai" alt="Mumbai">
+            <area shape="rect" coords="68,433,137,448" href="get_crops.php?district=Raigad" alt="Raigad">
+            <area shape="rect" coords="90,535,165,555" href="get_crops.php?district=Ratnagiri" alt="Ratnagiri">
+            <area shape="rect" coords="87,679,187,696" href="get_crops.php?district=Sindhudurg" alt="Sindhudurg">
+            <area shape="rect" coords="188,404,234,422" href="get_crops.php?district=Pune" alt="Pune">
+            <area shape="rect" coords="191,516,251,535" href="get_crops.php?district=Satara" alt="Satara">
+            <area shape="rect" coords="258,578,315,596" href="get_crops.php?district=Sangli" alt="Sangli">
+            <area shape="rect" coords="188,643,267,660" href="get_crops.php?district=Kolhapur" alt="Kolhapur">
+            <area shape="rect" coords="339,502,413,518" href="get_crops.php?district=Solapur" alt="Solapur">
+            <area shape="rect" coords="302,240,404,253" href="get_crops.php?district=Aurangabad" alt="Aurangabad">
+            <area shape="rect" coords="411,277,461,291" href="get_crops.php?district=Jalna" alt="Jalna">
+            <area shape="rect" coords="546,301,608,315" href="get_crops.php?district=Hingoli" alt="Hingoli">
+            <area shape="rect" coords="485,348,559,363" href="get_crops.php?district=Parbhani" alt="Parbhani">
+            <area shape="rect" coords="434,369,464,385" href="get_crops.php?district=Beed" alt="Beed">
+            <area shape="rect" coords="566,369,633,387" href="get_crops.php?district=Nanded" alt="Nanded">
+            <area shape="rect" coords="368,417,462,432" href="get_crops.php?district=Osmanabad" alt="Osmanabad">
+            <area shape="rect" coords="510,423,559,441" href="get_crops.php?district=Latur" alt="Latur">
+            <area shape="rect" coords="452,206,535,220" href="get_crops.php?district=Buldhana" alt="Buldhana">
+            <area shape="rect" coords="551,200,614,217" href="get_crops.php?district=Washim" alt="Washim">
+            <area shape="rect" coords="673,236,752,253" href="get_crops.php?district=Yavatmal" alt="Yavatmal">
+            <area shape="rect" coords="513,128,567,142" href="get_crops.php?district=Akola" alt="Akola">
+            <area shape="rect" coords="581,102,659,118" href="get_crops.php?district=Amravati" alt="Amravati">
+            <area shape="rect" coords="761,110,823,123" href="get_crops.php?district=Nagpur" alt="Nagpur">
+            <area shape="rect" coords="853,111,881,132" href="get_crops.php?district=Bhandara" alt="Bhandara">
+            <area shape="rect" coords="887,135,944,148" href="get_crops.php?district=Gondia" alt="Gondia">
+            <area shape="rect" coords="782,214,884,231" href="get_crops.php?district=Chandrapur" alt="Chandrapur">
+            <area shape="rect" coords="872,282,960,297" href="get_crops.php?district=Gadchiroli" alt="Gadchiroli">
+        </map>
+        
+    </div>
+
+    <!-- Div to display crops data -->
+    <div id="result" align="center"></div>
+</body>
+</html>

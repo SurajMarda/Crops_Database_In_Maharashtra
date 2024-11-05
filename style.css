@@ -1,0 +1,65 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with a soothing background color for the home page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8e0; /* Light pastel color for a calm, natural feel */
+    color: #333; /* Text color */
+}
+
+/* Navigation bar styling */
+nav {
+    background-color: #3a6b35; /* Darker green for the navbar */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+
+ul li a:hover {
+    color: #d4f1bb; /* Lighter green on hover */
+}
+
+/* Content section styling */
+#content {
+    background-color: #fff; /* White background for the content area */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    min-height: 200px;
+}
+
+/* Additional styling for text */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
